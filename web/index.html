@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: blob: https://*.giphy.com; media-src 'self' blob:; script-src 'self'; connect-src 'self'; base-uri 'none'; form-action 'self'">
+<title>StudentTrack</title>
+<meta name="theme-color" content="#F5EEE0" id="themecolor">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='1' y='1' width='30' height='30' rx='9' fill='%233B5BFF' stroke='%231B1A2E' stroke-width='2'/%3E%3Cpath d='M4 12l12-6 12 6-12 6z' fill='%23FFC83D' stroke='%231B1A2E' stroke-width='1.5'/%3E%3Cpath d='M9 16v5c0 2 3 3.5 7 3.5s7-1.5 7-3.5v-5' fill='none' stroke='%23fff' stroke-width='2'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=DM+Sans:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap">
+<link rel="stylesheet" href="app.css">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="apple-mobile-web-app-title" content="StudentTrack">
+</head>
+<body class="noauth">
+<div class="bgfx" aria-hidden="true"><div class="bw b1"><i></i></div><div class="bw b2"><i></i></div><div class="bw b3"><i></i></div></div>
+<div class="auth" id="auth"></div>
+<div class="app">
+  <aside class="side" id="side"></aside>
+  <div class="shell">
+    <header class="top" id="top"></header>
+    <main class="main">
+      <div id="view"></div>
+      <p class="note" id="mode-note"></p>
+    </main>
+  </div>
+</div>
+<nav class="tabs" id="tabs" aria-label="Main menu"></nav>
+<div class="sheet-back" id="sheet" hidden></div>
+<div class="toast" id="toast" hidden role="status"></div>
+<script src="app.js"></script>
+</body>
+</html>
