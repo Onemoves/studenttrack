@@ -1,0 +1,22 @@
+# secrets and user data, never commit
+web/config.php
+web/chat_uploads/
+*.sqlite
+*.db
+studenttrack-backup-*.json
+studenttrack-transactions-*.csv
+
+# Android / Gradle
+android/.gradle/
+android/build/
+android/app/build/
+android/local.properties
+*.apk
+*.aab
+.idea/
+*.iml
+
+# misc
+node_modules/
+.DS_Store
+Thumbs.db
