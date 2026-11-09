@@ -1,0 +1,45 @@
+name: Build Android APK
+
+on:
+  push:
+    tags: ['v*']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  apk:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: '8.7'
+
+      - name: Build APK
+        working-directory: android
+        env:
+          SITE_URL: ${{ vars.SITE_URL }}
+        run: gradle assembleDebug --no-daemon -PsiteUrl="${SITE_URL:-https://studenttrack.infinityfreeapp.com/}"
+
+      - name: Rename APK
+        run: cp android/app/build/outputs/apk/debug/app-debug.apk StudentTrack.apk
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: StudentTrack-apk
+          path: StudentTrack.apk
+
+      - name: Publish to Releases
+        if: startsWith(github.ref, 'refs/tags/')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: StudentTrack.apk
+          generate_release_notes: true
